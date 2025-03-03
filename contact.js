@@ -14,12 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
 
+        document.getElementById("form-errors").value = JSON.stringify(formErrors);
+        console.log("Hidden field form-errors before submission:", document.getElementById("form-errors").value);
+
+
         if (!isValid) {
             event.preventDefault();
-            formErrors.getElementById("form-errors").value = JSON.stringify(formErrors);
             console.log("Form Errors:", JSON.stringify(formErrors, null, 2));
         }
     })
+
+
 
     document.getElementById("message").addEventListener("input", function () {
         updateCharacterCount(this);
@@ -40,7 +45,7 @@ function validateField(input) {
         } else if (input.validity.patternMismatch) {
             input.setCustomValidity("Only letters and spaces allowed");
         } else if (input.validity.tooShort || input.validity.tooLong) {
-            input.setCustomValidity("Must be between ${input.minLength} and ${input.maxLength} characters.");
+            input.setCustomValidity(`Must be between ${input.minLength} and ${input.maxLength} characters.`);
         }
 
         errorMessage.textContent = input.validationMessage; //To Display custom vlaidaiton message in the output element
