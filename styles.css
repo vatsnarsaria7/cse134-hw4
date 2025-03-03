@@ -7,6 +7,14 @@
     --spacing: 1rem;
 }
 
+[data-theme="dark"] {
+    --primary-color: #222;
+    --secondary-color: #333;
+    --text-color: white;
+    --accent-color: #F98866;
+    --background-color: #111;
+}
+
 body {
     min-height: 100dvh;
     background-color: var(--primary-color, #F98866);
@@ -16,6 +24,25 @@ body {
     margin: 0;
     padding: 0;
 
+}
+
+/* Theme switching*/
+.theme-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: background 0.3s ease;
+}
+
+.theme-switcher:hover {
+    background: color-mix(in srgb, var(--accent-color) 80%, black);
 }
 
 /* Navigation Bar */
