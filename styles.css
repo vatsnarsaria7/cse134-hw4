@@ -262,6 +262,11 @@ footer {
     font-size: 1rem;
 }
 
+.contact-page input:invalid,
+.contact-page textarea:invalid {
+    border: 2px solid red;
+}
+
 .contact-page button {
     background: var(--accent-color, #8B1E3F);
     color: white;
@@ -295,6 +300,39 @@ footer {
     font-style: normal;
     margin-top: 0.5rem;
 }
+
+
+/* Contact Page JS Validation related styling */
+
+.error-message {
+    color: red;
+    font-size: 0.8 rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.info-message {
+    color: gray;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.invalid {
+    border: 2px solid red !important;
+}
+
+.flash-error {
+    animation: flash 0.2s 3;
+}
+
+@keyframes flash {
+    50% {
+        background: red;
+        color: white;
+    }
+}
+
 
 search {
     display: flex;
